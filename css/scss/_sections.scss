@@ -1,0 +1,763 @@
+/* ГЕРОЙ СЕКЦИИ */
+.hero-section {
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    background: $gradient-hero;
+    color: $color-white;
+    padding-top: 80px;
+    position: relative;
+    overflow: hidden;
+}
+
+.hero-content {
+    text-align: center;
+    position: relative;
+    z-index: 2;
+    max-width: 800px;
+    margin: 0 auto;
+
+    .display-1 {
+        font-weight: 200;
+        font-size: 4rem;
+        letter-spacing: -1px;
+        margin-bottom: 1.5rem;
+        background: linear-gradient(135deg, $color-white, #e0e0e0);
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+        text-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+    }
+
+    .lead {
+        font-size: 1.3rem;
+        color: rgba(255, 255, 255, 0.9);
+        margin-bottom: 2.5rem;
+        font-weight: 300;
+    }
+}
+
+.bg-animation {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: $gradient-bg;
+    z-index: -1;
+}
+
+.floating-elements {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    overflow: hidden;
+}
+
+/* ЗАГОЛОВКИ ОТЕЛЕЙ */
+.hotel-header {
+    min-height: 60vh;
+    display: flex;
+    align-items: center;
+    background-size: cover;
+    background-position: center;
+    color: $color-white;
+    padding-top: 80px;
+    position: relative;
+
+    &::before {
+        content: '';
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        background: linear-gradient(135deg, rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.4));
+    }
+
+    .hero-content {
+        position: relative;
+        z-index: 2;
+        text-align: center;
+    }
+}
+
+.belek-header {
+    background-image: url('../assets/images/belek.jpg');
+}
+
+.kemer-header {
+    background-image: url('../assets/images/kemer.jpg');
+}
+
+.bodrum-header {
+    background-image: url('../assets/images/bodrum.jpg');
+}
+
+/* СЕКЦИЯ О КУРОРТЕ */
+.hotel-about-section {
+    padding: 5rem 0;
+    background: $color-white;
+}
+
+.about-content {
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+.about-text {
+    font-size: 1.1rem;
+    line-height: 1.7;
+    color: $color-medium;
+    margin-bottom: 3rem;
+    text-align: center;
+}
+
+.features-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 2rem;
+    margin-top: 3rem;
+}
+
+/* ФИЛЬТРЫ СЕКЦИЯ */
+.filters-section {
+    padding: 4rem 0;
+    background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
+}
+
+.filters-container {
+    background: $color-white;
+    border-radius: $border-radius-lg;
+    padding: 2.5rem;
+    box-shadow: $shadow-md;
+    margin-top: 2rem;
+}
+
+/* СЕКЦИЯ НОМЕРОВ */
+.rooms-section {
+    padding: 5rem 0;
+    background: $color-white;
+}
+
+.rooms-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
+    gap: 2rem;
+    margin-top: 2rem;
+}
+
+.room-card {
+    background: $color-white;
+    border-radius: $border-radius-lg;
+    overflow: hidden;
+    box-shadow: $shadow-md;
+    transition: $transition;
+    border: 1px solid rgba(0, 0, 0, 0.05);
+
+    &:hover {
+        transform: translateY(-5px);
+        box-shadow: $shadow-xl;
+    }
+}
+
+.room-image {
+    height: 220px;
+    background-size: cover;
+    background-position: center;
+    position: relative;
+}
+
+.room-content {
+    padding: 1.5rem;
+}
+
+.room-specs {
+    display: flex;
+    gap: 1rem;
+    margin-bottom: 1rem;
+    font-family: $font-ui;
+    font-weight: 400;
+    font-size: 0.9rem;
+    color: #666;
+
+    span {
+        display: flex;
+        align-items: center;
+        gap: 0.25rem;
+    }
+}
+
+.room-desc {
+    font-size: 0.95rem;
+    color: #666;
+    margin-bottom: 1.25rem;
+    line-height: 1.5;
+}
+
+.room-features {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+    margin-bottom: 1.5rem;
+}
+
+.feature-tag {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.25rem;
+    padding: 0.4rem 0.8rem;
+    background: $color-background;
+    border-radius: 50px;
+    font-family: $font-ui;
+    font-weight: 400;
+    font-size: 0.8rem;
+    color: $color-medium;
+
+    i {
+        font-size: 0.8rem;
+    }
+}
+
+.room-footer {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding-top: 1rem;
+    border-top: 1px solid $color-gray-light;
+}
+
+.room-price {
+    font-family: $font-secondary;
+    font-weight: 300;
+    font-size: 1.2rem;
+    color: $color-dark;
+
+    .price-number {
+        font-weight: 400;
+        color: $color-primary;
+    }
+}
+
+.no-rooms {
+    text-align: center;
+    padding: 4rem 0;
+
+    &-content {
+        max-width: 400px;
+        margin: 0 auto;
+
+        i {
+            font-size: 4rem;
+            color: $color-gray-light;
+            margin-bottom: 1.5rem;
+        }
+
+        h3 {
+            margin-bottom: 1rem;
+            color: $color-dark;
+        }
+
+        p {
+            color: #666;
+            margin-bottom: 2rem;
+        }
+    }
+}
+
+/* СЕКЦИЯ БРОНИРОВАНИЯ */
+.booking-section {
+    padding: 5rem 0;
+    background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
+}
+
+.booking-container {
+    display: grid;
+    grid-template-columns: 1fr 2fr;
+    gap: 2.5rem;
+    margin-top: 2rem;
+}
+
+.booking-summary {
+    background: $color-white;
+    padding: 2rem;
+    border-radius: $border-radius-lg;
+    box-shadow: $shadow-md;
+
+    h3 {
+        margin-bottom: 1.5rem;
+        color: $color-dark;
+    }
+}
+
+.selected-room {
+    background: $color-background;
+    border-radius: 12px;
+    padding: 1.5rem;
+    margin-bottom: 2rem;
+    min-height: 150px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.no-selection {
+    text-align: center;
+    color: #999;
+
+    i {
+        font-size: 3rem;
+        margin-bottom: 1rem;
+        color: #dee2e6;
+    }
+
+    p {
+        margin: 0;
+        font-size: 0.95rem;
+    }
+}
+
+.selected-room-content {
+    display: flex;
+    gap: 1.5rem;
+    width: 100%;
+}
+
+.selected-room-image {
+    width: 120px;
+    height: 120px;
+    background-size: cover;
+    background-position: center;
+    border-radius: 12px;
+    flex-shrink: 0;
+}
+
+.selected-room-info {
+    flex: 1;
+
+    h4 {
+        margin-bottom: 0.75rem;
+        color: $color-dark;
+    }
+}
+
+.selected-room-specs {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1rem;
+    margin-bottom: 1rem;
+    font-family: $font-ui;
+    font-weight: 400;
+    font-size: 0.9rem;
+    color: #666;
+
+    span {
+        display: flex;
+        align-items: center;
+        gap: 0.25rem;
+    }
+}
+
+.selected-room-price {
+    font-family: $font-secondary;
+    font-weight: 400;
+    font-size: 1.5rem;
+    color: $color-primary;
+}
+
+.price-summary {
+    background: $color-background;
+    border-radius: 12px;
+    padding: 1.5rem;
+}
+
+.price-row {
+    display: flex;
+    justify-content: space-between;
+    padding: 0.75rem 0;
+    border-bottom: 1px solid $color-gray-light;
+    font-family: $font-ui;
+    font-weight: 400;
+    font-size: 0.95rem;
+    color: $color-medium;
+
+    &.total {
+        border-bottom: none;
+        padding-top: 1rem;
+        font-weight: 500;
+        font-size: 1.1rem;
+        color: $color-dark;
+    }
+
+    .price {
+        font-weight: 500;
+        color: $color-primary;
+    }
+}
+
+.booking-form-card {
+    background: $color-white;
+    padding: 2.5rem;
+    border-radius: $border-radius-lg;
+    box-shadow: $shadow-md;
+
+    h3 {
+        margin-bottom: 2rem;
+        color: $color-dark;
+    }
+}
+
+.additional-services-form {
+    margin: 2rem 0;
+    padding: 1.5rem;
+    background: $color-background;
+    border-radius: 12px;
+
+    h4 {
+        margin-bottom: 1.25rem;
+        color: $color-dark;
+    }
+}
+
+.services-checkboxes {
+    display: flex;
+    flex-direction: column;
+    gap: 0.75rem;
+}
+
+.service-checkbox {
+    position: relative;
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    padding: 1rem;
+    background: $color-white;
+    border: 2px solid $color-gray-light;
+    border-radius: $border-radius;
+    cursor: pointer;
+    transition: $transition;
+
+    &:hover {
+        border-color: $color-primary;
+    }
+}
+
+.checkmark {
+    position: relative;
+    width: 20px;
+    height: 20px;
+    border: 2px solid #dee2e6;
+    border-radius: 4px;
+    transition: $transition;
+    flex-shrink: 0;
+
+    .service-checkbox input:checked + & {
+        background: $color-primary;
+        border-color: $color-primary;
+    }
+
+    .service-checkbox input:checked + &::after {
+        content: '✓';
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        color: $color-white;
+        font-size: 0.8rem;
+        font-weight: bold;
+    }
+}
+
+.service-info {
+    flex: 1;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.service-name {
+    font-family: $font-ui;
+    font-weight: 400;
+    font-size: 0.95rem;
+    color: $color-dark;
+}
+
+.service-price {
+    font-family: $font-ui;
+    font-weight: 500;
+    font-size: 0.95rem;
+    color: $color-primary;
+}
+
+/* КАРТОЧКИ ОТЕЛЕЙ (главная) */
+.hotels-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 2rem;
+    margin-top: 3rem;
+}
+
+.hotel-card {
+    background: $color-white;
+    border-radius: $border-radius-lg;
+    overflow: hidden;
+    box-shadow: $shadow-md;
+    transition: $transition;
+    border: 1px solid rgba(0, 0, 0, 0.05);
+
+    &:hover {
+        transform: translateY(-5px);
+        box-shadow: $shadow-xl;
+    }
+}
+
+.hotel-image {
+    height: 250px;
+    background-size: cover;
+    background-position: center;
+    position: relative;
+}
+
+.hotel-overlay {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    padding: 2rem;
+    background: linear-gradient(transparent, rgba(0, 0, 0, 0.8));
+    color: $color-white;
+    transform: translateY(100%);
+    transition: transform 0.3s ease;
+
+    .hotel-card:hover & {
+        transform: translateY(0);
+    }
+
+    h3 {
+        margin-bottom: 0.5rem;
+        color: $color-white;
+        font-size: 1.4rem;
+    }
+
+    p {
+        color: rgba(255, 255, 255, 0.9);
+        font-size: 0.9rem;
+        margin-bottom: 1rem;
+        line-height: 1.4;
+    }
+}
+
+.hotel-features {
+    padding: 1.25rem;
+    display: flex;
+    justify-content: space-around;
+    background: $color-background;
+    border-top: 1px solid $color-gray-light;
+
+    span {
+        display: flex;
+        align-items: center;
+        gap: 0.5rem;
+        font-family: $font-ui;
+        font-weight: 400;
+        font-size: 0.85rem;
+        color: #666;
+    }
+
+    i {
+        color: $color-primary;
+        font-size: 0.9rem;
+    }
+}
+
+/* СЕКЦИЯ ВПЕЧАТЛЕНИЙ */
+.experiences-section {
+    padding: 5rem 0;
+    background: $color-white;
+}
+
+.experiences-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 2rem;
+    margin-bottom: 4rem;
+}
+
+.map-container {
+    position: relative;
+    height: 400px;
+    background: $color-background;
+    border-radius: $border-radius-lg;
+    overflow: hidden;
+    border: 1px solid rgba(0, 0, 0, 0.05);
+}
+
+.map-visual {
+    position: relative;
+    width: 100%;
+    height: 100%;
+
+    img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+    }
+}
+
+.map-dot {
+    position: absolute;
+    width: 50px;
+    height: 50px;
+    cursor: pointer;
+    transform: translate(-50%, -50%);
+
+    &:hover .dot-label {
+        opacity: 1;
+    }
+}
+
+.dot-pulse {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background: $gradient-primary;
+    border-radius: 50%;
+    animation: pulse 2s infinite;
+}
+
+.dot-label {
+    position: absolute;
+    top: -30px;
+    left: 50%;
+    transform: translateX(-50%);
+    background: $color-white;
+    padding: 0.5rem 1rem;
+    border-radius: 50px;
+    font-family: $font-ui;
+    font-weight: 500;
+    font-size: 0.85rem;
+    color: $color-dark;
+    white-space: nowrap;
+    box-shadow: $shadow-sm;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+}
+
+.dot-1 { top: 40%; left: 35%; }
+.dot-2 { top: 60%; left: 40%; }
+.dot-3 { top: 35%; left: 70%; }
+
+/* ФУТЕР */
+.footer {
+    background: linear-gradient(135deg, #333, #222);
+    color: $color-white;
+    padding: 4rem 0 2rem;
+}
+
+.footer-content {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 4rem;
+    margin-bottom: 3rem;
+}
+
+.footer-logo {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+
+    img {
+        height: 50px;
+        width: auto;
+    }
+
+    p {
+        color: rgba(255, 255, 255, 0.7);
+        font-size: 1rem;
+        margin: 0;
+    }
+}
+
+.social-links {
+    display: flex;
+    gap: 1rem;
+
+    a {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        width: 40px;
+        height: 40px;
+        background: rgba(255, 255, 255, 0.1);
+        border-radius: 50%;
+        color: $color-white;
+        text-decoration: none;
+        font-size: 1.2rem;
+        transition: $transition;
+
+        &:hover {
+            background: $color-primary;
+            transform: translateY(-3px);
+        }
+    }
+}
+
+.footer-contact {
+    h4 {
+        margin-bottom: 1.5rem;
+        color: $color-white;
+        font-size: 1.2rem;
+    }
+
+    p {
+        display: flex;
+        align-items: center;
+        gap: 0.75rem;
+        margin-bottom: 1rem;
+        color: rgba(255, 255, 255, 0.7);
+        font-size: 0.95rem;
+    }
+
+    i {
+        color: $color-primary;
+        font-size: 1rem;
+    }
+}
+
+.footer-bottom {
+    text-align: center;
+    padding-top: 2rem;
+    border-top: 1px solid rgba(255, 255, 255, 0.1);
+    color: rgba(255, 255, 255, 0.5);
+    font-family: $font-ui;
+    font-weight: 400;
+    font-size: 0.9rem;
+}
+
+/* БРОНИРОВАНИЕ ПОДТВЕРЖДЕНИЕ */
+.booking-confirmation {
+    text-align: center;
+    padding: 2rem 0;
+
+    i {
+        font-size: 4rem;
+        color: $color-accent;
+        margin-bottom: 1.5rem;
+    }
+
+    h3 {
+        margin-bottom: 1.5rem;
+        color: $color-dark;
+    }
+
+    p {
+        margin-bottom: 0.75rem;
+        color: $color-medium;
+    }
+
+    strong {
+        color: $color-dark;
+        font-weight: 500;
+    }
+}

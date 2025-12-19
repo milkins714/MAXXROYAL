@@ -1,0 +1,32 @@
+/* Общие классы layout */
+section {
+    padding: 5rem 0;
+}
+
+/* Сетки */
+.grid {
+    display: grid;
+    gap: 2rem;
+}
+
+.flex {
+    display: flex;
+
+    &-between {
+        justify-content: space-between;
+    }
+
+    &-center {
+        align-items: center;
+        justify-content: center;
+    }
+}
+
+.text-center {
+    text-align: center;
+}
+
+.mx-auto {
+    margin-left: auto;
+    margin-right: auto;
+}
