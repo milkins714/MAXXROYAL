@@ -1,3 +1,4 @@
+// Навигация
 const navToggle = document.querySelector('.nav-toggle');
 const navLinks = document.querySelector('.nav-links');
 
@@ -7,22 +8,31 @@ if (navToggle) {
     });
 }
 
+// Глобальные переменные
 let selectedRoom = null;
 
+// Инициализация при загрузке
 document.addEventListener('DOMContentLoaded', function() {
+    // Инициализация фильтров
     initFilters();
     
+    // Инициализация бронирования
     initBooking();
     
+    // Инициализация модального окна
     initModal();
     
+    // Анимация при скролле
     initAnimations();
     
+    // Плавная прокрутка
     initSmoothScroll();
     
+    // Обновление статистики фильтров
     updateFilterStats();
 });
 
+// ФИЛЬТРЫ
 function initFilters() {
     const priceRange = document.getElementById('priceRange');
     if (priceRange) {
@@ -34,6 +44,7 @@ function initFilters() {
         });
     }
     
+    // Слушатели для фильтров
     document.querySelectorAll('.filter-tag input, .filter-radio input').forEach(filter => {
         filter.addEventListener('change', updateFilterStats);
     });
@@ -47,14 +58,17 @@ function applyFilters() {
 }
 
 function resetFilters() {
+    // Сброс чекбоксов
     document.querySelectorAll('.filter-tag input').forEach(cb => {
         cb.checked = false;
     });
     
+    // Сброс радио-кнопок
     document.querySelectorAll('.filter-radio input[value="all"]').forEach(radio => {
         radio.checked = true;
     });
     
+    // Сброс слайдера цены
     const priceRange = document.getElementById('priceRange');
     if (priceRange) {
         priceRange.value = priceRange.max;
@@ -62,6 +76,7 @@ function resetFilters() {
         document.getElementById('rangeValue').textContent = maxValue.toLocaleString('ru-RU') + '₽';
     }
     
+    // Применение сброса
     applyFilters();
 }
 
@@ -97,16 +112,19 @@ function filterRooms(filters) {
         const roomPrice = parseInt(card.getAttribute('data-price'));
         const roomType = card.getAttribute('data-type');
         
+        // Проверка цены
         if (roomPrice > filters.maxPrice) {
             card.style.display = 'none';
             return;
         }
         
+        // Проверка типа
         if (filters.roomType !== 'all' && roomType !== filters.roomType) {
             card.style.display = 'none';
             return;
         }
         
+        // Проверка фильтров
         let showCard = true;
         
         if (filters.pets && card.getAttribute('data-pets') !== 'true') showCard = false;
@@ -122,6 +140,7 @@ function filterRooms(filters) {
             card.style.display = 'block';
             visibleCount++;
             
+            // Обновление min/max цены
             if (roomPrice < minPrice) minPrice = roomPrice;
             if (roomPrice > maxPrice) maxPrice = roomPrice;
         } else {
@@ -129,6 +148,7 @@ function filterRooms(filters) {
         }
     });
     
+    // Показать/скрыть сообщение "Нет номеров"
     const noRooms = document.getElementById('noRooms');
     if (visibleCount === 0) {
         noRooms.style.display = 'block';
@@ -136,8 +156,10 @@ function filterRooms(filters) {
         noRooms.style.display = 'none';
     }
     
+    // Обновить счетчик
     document.getElementById('roomsCount').textContent = visibleCount;
     
+    // Обновить цены в статистике
     document.getElementById('minPrice').textContent = minPrice !== Infinity ? minPrice.toLocaleString('ru-RU') + '₽' : '0₽';
     document.getElementById('maxPrice').textContent = maxPrice !== 0 ? maxPrice.toLocaleString('ru-RU') + '₽' : '0₽';
     
@@ -188,7 +210,9 @@ function scrollToRooms() {
     }
 }
 
+// БРОНИРОВАНИЕ
 function initBooking() {
+    // Обработчики для кнопок выбора номера
     document.querySelectorAll('.btn-book').forEach(button => {
         button.addEventListener('click', function() {
             const roomCard = this.closest('.room-card');
@@ -196,6 +220,7 @@ function initBooking() {
         });
     });
     
+    // Обработчики для счетчиков
     document.querySelectorAll('.counter-btn').forEach(btn => {
         btn.addEventListener('click', function() {
             const counter = this.closest('.counter').querySelector('.counter-value');
@@ -212,10 +237,12 @@ function initBooking() {
         });
     });
     
+    // Обработчики для дополнительных услуг
     document.querySelectorAll('.service-checkbox input').forEach(checkbox => {
         checkbox.addEventListener('change', updateTotalPrice);
     });
     
+    // Обработчик формы бронирования
     const bookingForm = document.getElementById('bookingForm');
     if (bookingForm) {
         bookingForm.addEventListener('submit', function(e) {
@@ -226,6 +253,7 @@ function initBooking() {
                 return;
             }
             
+            // Сбор данных
             const formData = {
                 room: selectedRoom.name,
                 price: selectedRoom.price,
@@ -240,10 +268,13 @@ function initBooking() {
                 total: calculateTotalPrice()
             };
             
+            // В реальном проекте здесь была бы отправка на сервер
             console.log('Данные бронирования:', formData);
             
+            // Показать подтверждение
             showBookingConfirmation(formData);
             
+            // Сброс формы
             resetBookingForm();
         });
     }
@@ -266,6 +297,7 @@ function selectRoom(roomCard) {
         image: roomImage
     };
     
+    // Обновить отображение выбранного номера
     const selectedRoomElement = document.getElementById('selectedRoom');
     selectedRoomElement.innerHTML = `
         <div class="selected-room-content">
@@ -282,10 +314,13 @@ function selectRoom(roomCard) {
         </div>
     `;
     
+    // Прокрутить к секции бронирования
     document.getElementById('bookingSection').scrollIntoView({ behavior: 'smooth', block: 'start' });
     
+    // Обновить цены
     updateTotalPrice();
     
+    // Показать уведомление
     showNotification(`Выбран номер: ${roomName}`, 'success');
 }
 
@@ -295,6 +330,7 @@ function updateTotalPrice() {
     const roomPrice = selectedRoom.price;
     let extraPrice = 0;
     
+    // Сумма дополнительных услуг
     document.querySelectorAll('.service-checkbox input:checked').forEach(checkbox => {
         const priceText = checkbox.closest('.service-checkbox').querySelector('.service-price').textContent;
         const price = parseInt(priceText.replace(/\D/g, ''));
@@ -303,6 +339,7 @@ function updateTotalPrice() {
     
     const totalPrice = roomPrice + extraPrice;
     
+    // Обновить отображение цен
     document.getElementById('roomPrice').textContent = roomPrice.toLocaleString('ru-RU') + ' ₽';
     document.getElementById('extraPrice').textContent = extraPrice.toLocaleString('ru-RU') + ' ₽';
     document.getElementById('totalPrice').textContent = totalPrice.toLocaleString('ru-RU') + ' ₽';
@@ -384,6 +421,7 @@ function showBookingConfirmation(formData) {
 function resetBookingForm() {
     selectedRoom = null;
     
+    // Сброс отображения выбранного номера
     const selectedRoomElement = document.getElementById('selectedRoom');
     selectedRoomElement.innerHTML = `
         <div class="no-selection">
@@ -392,19 +430,83 @@ function resetBookingForm() {
         </div>
     `;
     
+    // Сброс формы
     document.getElementById('bookingForm').reset();
     document.getElementById('adults').textContent = '2';
     document.getElementById('children').textContent = '0';
     
+    // Сброс дополнительных услуг
     document.querySelectorAll('.service-checkbox input').forEach(checkbox => {
         checkbox.checked = false;
     });
     
+    // Сброс цен
     document.getElementById('roomPrice').textContent = '0 ₽';
     document.getElementById('extraPrice').textContent = '0 ₽';
     document.getElementById('totalPrice').textContent = '0 ₽';
 }
 
+// МОДАЛЬНОЕ ОКНО
+function initModal() {
+    // Обработчики для кнопок просмотра деталей (если будут добавлены)
+    document.querySelectorAll('.btn-view-details').forEach(btn => {
+        btn.addEventListener('click', function() {
+            const roomCard = this.closest('.room-card');
+            showRoomDetails(roomCard);
+        });
+    });
+}
+
+function showRoomDetails(roomCard) {
+    const roomName = roomCard.getAttribute('data-room');
+    const roomPrice = parseInt(roomCard.getAttribute('data-price'));
+    const roomDescription = roomCard.getAttribute('data-description');
+    const roomSize = roomCard.getAttribute('data-size');
+    const roomView = roomCard.getAttribute('data-view');
+    const roomFeatures = roomCard.getAttribute('data-features');
+    
+    // Заполнение модального окна
+    document.getElementById('modalRoomName').textContent = roomName;
+    document.getElementById('modalRoomPrice').textContent = roomPrice.toLocaleString('ru-RU') + ' ₽/ночь';
+    document.getElementById('modalRoomSize').textContent = roomSize;
+    document.getElementById('modalRoomView').textContent = roomView;
+    document.getElementById('modalRoomDesc').textContent = roomDescription;
+    
+    // Заполнение списка особенностей
+    const featuresList = document.getElementById('modalFeaturesList');
+    featuresList.innerHTML = '';
+    if (roomFeatures) {
+        roomFeatures.split(',').forEach(feature => {
+            const li = document.createElement('li');
+            li.innerHTML = `<i class="bi bi-check"></i> ${feature.trim()}`;
+            featuresList.appendChild(li);
+        });
+    }
+    
+    // Показать модальное окно
+    const modal = document.getElementById('roomModal');
+    modal.classList.add('active');
+    
+    // Обработчик кнопки "Выбрать этот номер"
+    const bookBtn = modal.querySelector('.btn-book-modal');
+    bookBtn.onclick = () => {
+        selectRoom(roomCard);
+        modal.classList.remove('active');
+    };
+    
+    // Закрытие модального окна
+    modal.querySelector('.close-modal').addEventListener('click', () => {
+        modal.classList.remove('active');
+    });
+    
+    modal.addEventListener('click', (e) => {
+        if (e.target === modal) {
+            modal.classList.remove('active');
+        }
+    });
+}
+
+// ВСПОМОГАТЕЛЬНЫЕ ФУНКЦИИ
 function initAnimations() {
     const observer = new IntersectionObserver((entries) => {
         entries.forEach(entry => {
@@ -449,10 +551,12 @@ function showNotification(message, type = 'info') {
     
     document.body.appendChild(notification);
     
+    // Анимация появления
     setTimeout(() => {
         notification.classList.add('show');
     }, 10);
     
+    // Закрытие при клике
     notification.querySelector('.notification-close').addEventListener('click', () => {
         notification.classList.remove('show');
         setTimeout(() => {
@@ -460,6 +564,7 @@ function showNotification(message, type = 'info') {
         }, 300);
     });
     
+    // Автоматическое закрытие
     setTimeout(() => {
         if (notification.parentNode) {
             notification.classList.remove('show');
@@ -472,6 +577,7 @@ function showNotification(message, type = 'info') {
     }, 5000);
 }
 
+// Утилиты для форматирования
 function formatPrice(price) {
     return price.toLocaleString('ru-RU') + ' ₽';
 }
