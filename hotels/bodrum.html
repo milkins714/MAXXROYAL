@@ -1,0 +1,506 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MAXX ROYAL Bodrum Resort</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.0/font/bootstrap-icons.css" rel="stylesheet">
+    <link rel="stylesheet" href="../css/main.css">
+    <link rel="icon" type="image/svg+xml" href="../assets/logo.svg">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@200;300;400;500&family=Montserrat:wght@300;400;500&family=Inter:wght@300;400;500&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div class="bg-animation"></div>
+    
+    <nav class="navbar">
+        <div class="container">
+            <a class="navbar-brand" href="../index.html">
+                <img src="../assets/logo.svg" alt="MAXX ROYAL">
+                <span class="brand-name">MAXX ROYAL</span>
+            </a>
+            
+            <button class="nav-toggle">
+                <i class="bi bi-list"></i>
+            </button>
+            
+            <div class="nav-links">
+                <a class="nav-link" href="../index.html">Главная</a>
+                <div class="dropdown">
+                    <a class="nav-link active">Отели</a>
+                    <div class="dropdown-menu">
+                        <a href="belek-golf.html">Belek Golf Resort</a>
+                        <a href="kemer.html">Kemer Resort</a>
+                        <a href="bodrum.html" class="active">Bodrum Resort</a>
+                    </div>
+                </div>
+                <a class="nav-link" href="../index.html#contacts">Контакты</a>
+            </div>
+        </div>
+    </nav>
+
+    <header class="hotel-header bodrum-header">
+        <div class="container">
+            <div class="hero-content">
+                <h1 class="display-1">Bodrum Resort</h1>
+                <p class="lead">Бохо-шик курорт на Эгейском побережье</p>
+            </div>
+        </div>
+    </header>
+
+    <section class="hotel-about-section">
+        <div class="container">
+            <h2 class="section-title">О курорте</h2>
+            <p class="section-subtitle">Элегантность Эгейского моря в стиле бохо-шик</p>
+            
+            <div class="about-content">
+                <p class="about-text">Maxx Royal Bodrum Resort — это воплощение элегантной роскоши в стиле бохо-шик на побережье Эгейского моря. Курорт сочетает в себе традиционную турецкую архитектуру с современным дизайном, предлагая гостям уникальный опыт отдыха в атмосфере средиземноморского шика и непринужденной элегантности.</p>
+                
+                <div class="features-grid">
+                    <div class="feature-card">
+                        <div class="feature-icon">
+                            <i class="bi bi-sun"></i>
+                        </div>
+                        <h4>Эгейское море</h4>
+                        <p>Кристально чистая вода и живописные бухты Эгейского побережья</p>
+                    </div>
+                    
+                    <div class="feature-card">
+                        <div class="feature-icon">
+                            <i class="bi bi-brush"></i>
+                        </div>
+                        <h4>Бохо-шик дизайн</h4>
+                        <p>Архитектура в стиле белоснежных эгейских вилл с авторским декором</p>
+                    </div>
+                    
+                    <div class="feature-card">
+                        <div class="feature-icon">
+                            <i class="bi bi-music-note"></i>
+                        </div>
+                        <h4>Вечерние мероприятия</h4>
+                        <p>Живая музыка, тематические вечера и культурные мероприятия</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ФИЛЬТРЫ ПОИСКА -->
+    <section class="filters-section">
+        <div class="container">
+            <h2 class="section-title">Поиск номеров</h2>
+            <p class="section-subtitle">Найдите идеальный номер с помощью фильтров</p>
+            
+            <div class="filters-container">
+                <div class="filter-card">
+                    <h3 class="filter-title"><i class="bi bi-funnel"></i> Фильтры</h3>
+                    
+                    <div class="filter-group">
+                        <h4>Удобства</h4>
+                        <div class="filter-tags">
+                            <label class="filter-tag">
+                                <input type="checkbox" id="filterPets">
+                                <span class="tag-content">
+                                    <i class="bi bi-heart"></i>
+                                    <span>С животными</span>
+                                </span>
+                            </label>
+                            
+                            <label class="filter-tag">
+                                <input type="checkbox" id="filterSeaView">
+                                <span class="tag-content">
+                                    <i class="bi bi-binoculars"></i>
+                                    <span>Вид на море</span>
+                                </span>
+                            </label>
+                            
+                            <label class="filter-tag">
+                                <input type="checkbox" id="filterFamily">
+                                <span class="tag-content">
+                                    <i class="bi bi-people"></i>
+                                    <span>Семейный</span>
+                                </span>
+                            </label>
+                            
+                            <label class="filter-tag">
+                                <input type="checkbox" id="filterBalcony">
+                                <span class="tag-content">
+                                    <i class="bi bi-door-open"></i>
+                                    <span>С балконом</span>
+                                </span>
+                            </label>
+                            
+                            <label class="filter-tag">
+                                <input type="checkbox" id="filterSpa">
+                                <span class="tag-content">
+                                    <i class="bi bi-heart-pulse"></i>
+                                    <span>SPA в номере</span>
+                                </span>
+                            </label>
+                            
+                            <label class="filter-tag">
+                                <input type="checkbox" id="filterPool">
+                                <span class="tag-content">
+                                    <i class="bi bi-water"></i>
+                                    <span>Бассейн</span>
+                                </span>
+                            </label>
+                        </div>
+                    </div>
+                    
+                    <div class="filter-group">
+                        <h4>Тип номера</h4>
+                        <div class="filter-radio">
+                            <label class="radio-option">
+                                <input type="radio" name="roomType" value="all" checked>
+                                <span class="radio-label">Все номера</span>
+                            </label>
+                            <label class="radio-option">
+                                <input type="radio" name="roomType" value="deluxe">
+                                <span class="radio-label">Deluxe</span>
+                            </label>
+                            <label class="radio-option">
+                                <input type="radio" name="roomType" value="suite">
+                                <span class="radio-label">Suite</span>
+                            </label>
+                            <label class="radio-option">
+                                <input type="radio" name="roomType" value="villa">
+                                <span class="radio-label">Villa</span>
+                            </label>
+                        </div>
+                    </div>
+                    
+                    <div class="filter-group">
+                        <h4>Цена за ночь</h4>
+                        <div class="price-range">
+                            <input type="range" min="0" max="150000" value="150000" class="range-slider" id="priceRange">
+                            <div class="range-values">
+                                <span>0₽</span>
+                                <span id="rangeValue">150.000₽</span>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="filter-buttons">
+                        <button class="btn btn-accent btn-apply" onclick="applyFilters()">
+                            <i class="bi bi-search"></i> Применить фильтры
+                        </button>
+                        <button class="btn btn-outline btn-reset" onclick="resetFilters()">
+                            <i class="bi bi-arrow-clockwise"></i> Сбросить
+                        </button>
+                    </div>
+                </div>
+                
+                <div class="filter-stats">
+                    <div class="stat-card">
+                        <div class="stat-number" id="roomsCount">3</div>
+                        <div class="stat-label">номеров найдено</div>
+                    </div>
+                    <div class="stat-card">
+                        <div class="stat-number" id="minPrice">38.000₽</div>
+                        <div class="stat-label">от</div>
+                    </div>
+                    <div class="stat-card">
+                        <div class="stat-number" id="maxPrice">150.000₽</div>
+                        <div class="stat-label">до</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- НОМЕРА -->
+    <section class="rooms-section">
+        <div class="container">
+            <h2 class="section-title">Доступные номера</h2>
+            <p class="section-subtitle" id="roomsSubtitle">Все номера курорта</p>
+            
+            <div class="rooms-grid" id="roomsGrid">
+                <div class="room-card" 
+                     data-room="Aegean View Room" 
+                     data-price="38000"
+                     data-type="deluxe"
+                     data-description="Стильный номер в эгейском стиле с видом на море. Элегантный дизайн в бело-голубых тонах создает атмосферу средиземноморского отдыха. Номер оформлен в традиционном турецком стиле с современными удобствами."
+                     data-size="42 м²"
+                     data-view="Вид на море"
+                     data-pets="false"
+                     data-seaview="true"
+                     data-family="false"
+                     data-balcony="true"
+                     data-spa="true"
+                     data-pool="false"
+                     data-features="King size кровать, Мраморная ванная, Балкон с видом на море, Кофемашина, Мини-бар премиум, Телевизор Smart TV, Сейф, Халаты">
+                    <div class="room-image" style="background-image: url('../assets/images/bodrum1.jpg');">
+                        <div class="room-badge">Deluxe</div>
+                    </div>
+                    <div class="room-content">
+                        <h3>Aegean View Room</h3>
+                        <div class="room-specs">
+                            <span><i class="bi bi-arrows-fullscreen"></i> 42 м²</span>
+                            <span><i class="bi bi-binoculars"></i> Вид на море</span>
+                            <span><i class="bi bi-person"></i> 2 гостя</span>
+                        </div>
+                        <p class="room-desc">Элегантный номер в эгейском стиле с панорамным видом на море</p>
+                        <div class="room-features">
+                            <span class="feature-tag"><i class="bi bi-binoculars"></i> Вид на море</span>
+                            <span class="feature-tag"><i class="bi bi-heart-pulse"></i> SPA</span>
+                            <span class="feature-tag"><i class="bi bi-door-open"></i> Балкон</span>
+                        </div>
+                        <div class="room-footer">
+                            <div class="room-price">от <span class="price-number">38.000</span> ₽/ночь</div>
+                            <button class="btn btn-accent btn-book">Выбрать номер</button>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="room-card" 
+                     data-room="Boho Chic Suite" 
+                     data-price="72000"
+                     data-type="suite"
+                     data-description="Просторный люкс в стиле бохо-шик с панорамным видом на Эгейское море. Уникальный дизайн с элементами ручной работы и этническими акцентами. Интерьер украшен авторскими произведениями искусства и натуральными материалами."
+                     data-size="80 м²"
+                     data-view="Панорамный вид"
+                     data-pets="true"
+                     data-seaview="true"
+                     data-family="true"
+                     data-balcony="true"
+                     data-spa="true"
+                     data-pool="false"
+                     data-features="Гостиная зона, Дизайнерский интерьер, Панорамная терраса, Две ванные, Художественная коллекция, Барная зона, Рабочий кабинет, Отдельная гардеробная">
+                    <div class="room-image" style="background-image: url('../assets/images/bodrum2.jpg');">
+                        <div class="room-badge">Suite</div>
+                    </div>
+                    <div class="room-content">
+                        <h3>Boho Chic Suite</h3>
+                        <div class="room-specs">
+                            <span><i class="bi bi-arrows-fullscreen"></i> 80 м²</span>
+                            <span><i class="bi bi-binoculars"></i> Панорамный вид</span>
+                            <span><i class="bi bi-people"></i> 4 гостя</span>
+                        </div>
+                        <p class="room-desc">Эксклюзивный люкс в стиле бохо-шик с авторским дизайном</p>
+                        <div class="room-features">
+                            <span class="feature-tag"><i class="bi bi-heart"></i> С животными</span>
+                            <span class="feature-tag"><i class="bi bi-binoculars"></i> Вид на море</span>
+                            <span class="feature-tag"><i class="bi bi-heart-pulse"></i> SPA</span>
+                            <span class="feature-tag"><i class="bi bi-door-open"></i> Балкон</span>
+                            <span class="feature-tag"><i class="bi bi-people"></i> Семейный</span>
+                        </div>
+                        <div class="room-footer">
+                            <div class="room-price">от <span class="price-number">72.000</span> ₽/ночь</div>
+                            <button class="btn btn-accent btn-book">Выбрать номер</button>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="room-card" 
+                     data-room="Sea Villa" 
+                     data-price="150000"
+                     data-type="villa"
+                     data-description="Эксклюзивная вилла с прямым выходом к морю. Максимальная приватность и роскошь в стиле эгейской архитектуры. Вилла расположена в отдельном саду с собственным пляжем и предлагает полную изоляцию от других гостей."
+                     data-size="250 м²"
+                     data-view="Вид на море"
+                     data-pets="true"
+                     data-seaview="true"
+                     data-family="true"
+                     data-balcony="true"
+                     data-spa="true"
+                     data-pool="true"
+                     data-features="3 спальни, Прямой выход к морю, Частный бассейн, Собственный сад, Личный пляж, Дворецкий 24/7, Домашний кинотеатр, Винный погреб, Открытая кухня с шеф-поваром">
+                    <div class="room-image" style="background-image: url('../assets/images/bodrum3.jpg');">
+                        <div class="room-badge">Villa</div>
+                    </div>
+                    <div class="room-content">
+                        <h3>Sea Villa</h3>
+                        <div class="room-specs">
+                            <span><i class="bi bi-arrows-fullscreen"></i> 250 м²</span>
+                            <span><i class="bi bi-binoculars"></i> Вид на море</span>
+                            <span><i class="bi bi-people"></i> 6 гостей</span>
+                        </div>
+                        <p class="room-desc">Эксклюзивная вилла с частным бассейном и выходом к морю</p>
+                        <div class="room-features">
+                            <span class="feature-tag"><i class="bi bi-heart"></i> С животными</span>
+                            <span class="feature-tag"><i class="bi bi-binoculars"></i> Вид на море</span>
+                            <span class="feature-tag"><i class="bi bi-heart-pulse"></i> SPA</span>
+                            <span class="feature-tag"><i class="bi bi-water"></i> Бассейн</span>
+                            <span class="feature-tag"><i class="bi bi-people"></i> Семейный</span>
+                        </div>
+                        <div class="room-footer">
+                            <div class="room-price">от <span class="price-number">150.000</span> ₽/ночь</div>
+                            <button class="btn btn-accent btn-book">Выбрать номер</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="no-rooms" id="noRooms" style="display: none;">
+                <div class="no-rooms-content">
+                    <i class="bi bi-search"></i>
+                    <h3>Номера не найдены</h3>
+                    <p>Попробуйте изменить параметры поиска или сбросить фильтры</p>
+                    <button class="btn btn-accent" onclick="resetFilters()">Сбросить фильтры</button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- БРОНИРОВАНИЕ -->
+    <section class="booking-section" id="bookingSection">
+        <div class="container">
+            <h2 class="section-title">Бронирование</h2>
+            <p class="section-subtitle">Заполните форму для бронирования выбранного номера</p>
+            
+            <div class="booking-container">
+                <div class="booking-summary">
+                    <h3>Выбранный номер</h3>
+                    <div class="selected-room" id="selectedRoom">
+                        <div class="no-selection">
+                            <i class="bi bi-house"></i>
+                            <p>Выберите номер из списка выше</p>
+                        </div>
+                    </div>
+                    
+                    <div class="price-summary">
+                        <div class="price-row">
+                            <span>Стоимость номера (за ночь):</span>
+                            <span class="price" id="roomPrice">0 ₽</span>
+                        </div>
+                        <div class="price-row">
+                            <span>Дополнительные услуги:</span>
+                            <span class="price" id="extraPrice">0 ₽</span>
+                        </div>
+                        <div class="price-row total">
+                            <span>Итого:</span>
+                            <span class="price" id="totalPrice">0 ₽</span>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="booking-form-card">
+                    <h3>Данные для бронирования</h3>
+                    
+                    <form id="bookingForm">
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label for="checkin">Дата заезда</label>
+                                <div class="input-with-icon">
+                                    <i class="bi bi-calendar"></i>
+                                    <input type="date" id="checkin" required>
+                                </div>
+                            </div>
+                            
+                            <div class="form-group">
+                                <label for="checkout">Дата выезда</label>
+                                <div class="input-with-icon">
+                                    <i class="bi bi-calendar"></i>
+                                    <input type="date" id="checkout" required>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label>Взрослые</label>
+                                <div class="counter">
+                                    <button type="button" class="counter-btn minus"><i class="bi bi-dash"></i></button>
+                                    <span class="counter-value" id="adults">2</span>
+                                    <button type="button" class="counter-btn plus"><i class="bi bi-plus"></i></button>
+                                </div>
+                            </div>
+                            
+                            <div class="form-group">
+                                <label>Дети</label>
+                                <div class="counter">
+                                    <button type="button" class="counter-btn minus"><i class="bi bi-dash"></i></button>
+                                    <span class="counter-value" id="children">0</span>
+                                    <button type="button" class="counter-btn plus"><i class="bi bi-plus"></i></button>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="guestName">Ваше имя</label>
+                            <input type="text" id="guestName" placeholder="Иван Иванов" required>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="guestEmail">Email</label>
+                            <input type="email" id="guestEmail" placeholder="example@mail.com" required>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="guestPhone">Телефон</label>
+                            <input type="tel" id="guestPhone" placeholder="+7 (999) 999-99-99" required>
+                        </div>
+                        
+                        <div class="additional-services-form">
+                            <h4>Дополнительные услуги</h4>
+                            <div class="services-checkboxes">
+                                <label class="service-checkbox">
+                                    <input type="checkbox" name="airportTransfer">
+                                    <span class="checkmark"></span>
+                                    <div class="service-info">
+                                        <span class="service-name">Трансфер из аэропорта</span>
+                                        <span class="service-price">2.500 ₽</span>
+                                    </div>
+                                </label>
+                                
+                                <label class="service-checkbox">
+                                    <input type="checkbox" name="boatTour">
+                                    <span class="checkmark"></span>
+                                    <div class="service-info">
+                                        <span class="service-name">Морская экскурсия на яхте</span>
+                                        <span class="service-price">8.000 ₽</span>
+                                    </div>
+                                </label>
+                                
+                                <label class="service-checkbox">
+                                    <input type="checkbox" name="spaPackage">
+                                    <span class="checkmark"></span>
+                                    <div class="service-info">
+                                        <span class="service-name">SPA-пакет "Эгейское море"</span>
+                                        <span class="service-price">5.000 ₽</span>
+                                    </div>
+                                </label>
+                                
+                                <label class="service-checkbox">
+                                    <input type="checkbox" name="romanticDinner">
+                                    <span class="checkmark"></span>
+                                    <div class="service-info">
+                                        <span class="service-name">Ужин на яхте</span>
+                                        <span class="service-price">10.000 ₽</span>
+                                    </div>
+                                </label>
+                            </div>
+                        </div>
+                        
+                        <button type="submit" class="btn btn-accent btn-submit">
+                            <i class="bi bi-check-circle"></i> Забронировать номер
+                        </button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-logo">
+                    <img src="../assets/logo.svg" alt="MAXX ROYAL">
+                    <p>© 2025 MAXX ROYAL Bodrum Resort</p>
+                </div>
+                
+                <div class="footer-contact">
+                    <h4>Контакты курорта</h4>
+                    <p><i class="bi bi-geo-alt"></i> Bodrum, Muğla, Turkey</p>
+                    <p><i class="bi bi-telephone"></i> +90 (242) 710 00 03</p>
+                    <p><i class="bi bi-envelope"></i> bodrum@maxxroyal.com</p>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script src="../js/main.js"></script>
+</body>
+</html>
