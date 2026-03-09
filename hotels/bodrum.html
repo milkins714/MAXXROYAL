@@ -515,5 +515,39 @@
     </footer>
 
     <script src="../js/main.js"></script>
+    <div id="consent-banner" style="position: fixed; bottom: 20px; left: 20px; right: 20px; max-width: 500px; margin: 0 auto; background: #1a1a1a; color: white; padding: 20px; border-radius: 12px; box-shadow: 0 5px 30px rgba(0,0,0,0.3); z-index: 9999; font-family: Arial, sans-serif; display: none; border: 1px solid #333;">
+        <div style="display: flex; align-items: flex-start; gap: 15px;">
+            <div style="flex-grow: 1;">
+                <h3 style="margin: 0 0 10px 0; font-size: 18px; color: #fff;">🍪 Мы используем аналитику</h3>
+                <p style="margin: 0 0 15px 0; font-size: 14px; line-height: 1.5; color: #ccc;">
+                    Этот сайт использует Яндекс.Метрику для сбора анонимной статистики посещений. 
+                    Это помогает нам делать сайт лучше. Продолжая использовать сайт, вы соглашаетесь на сбор данных.
+                </p>
+                <div style="display: flex; gap: 10px; flex-wrap: wrap;">
+                    <button onclick="acceptAnalytics()" style="background: #1E3A8A; color: white; border: none; padding: 10px 25px; border-radius: 6px; cursor: pointer; font-size: 14px; font-weight: bold; transition: background 0.2s;">ОК, ПОНЯТНО</button>
+                    <a href="/privacy.html" style="background: transparent; color: #aaa; border: 1px solid #444; padding: 10px 20px; border-radius: 6px; text-decoration: none; font-size: 14px; transition: all 0.2s;">Подробнее</a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        function acceptAnalytics() {
+        document.getElementById('consent-banner').style.display = 'none';
+        localStorage.setItem('analyticsConsent', 'accepted');
+        document.cookie = "analytics_consent=accepted; path=/; max-age=" + 60*60*24*365;
+    }
+
+    window.addEventListener('load', function() {
+        const consent = localStorage.getItem('analyticsConsent');
+        const cookieConsent = document.cookie.includes('analytics_consent=accepted');
+    
+        if (!consent && !cookieConsent) {
+            setTimeout(function() {
+                document.getElementById('consent-banner').style.display = 'block';
+            }, 1000);
+        }
+    });
+    </script>
 </body>
 </html>
